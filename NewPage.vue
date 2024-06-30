@@ -1,162 +1,116 @@
+<!-- src/components/CourseList.vue -->
 <template>
-    <div>
-      <h1>القاعات و الدورات</h1>
-    </div>
-    <input type="text" v-model="searchQuery" placeholder="ادخل رقم القاعة او اسم الدورة">
+  <div id="course-list">
+    <h1>القاعات و الدورات</h1>
+    <div class="search-container">
+      <input type="text" v-model="searchQuery" placeholder="ادخل رقم القاعة او اسم الدورة">
       <button @click="search">بحث</button>
-
-      <div class="course-card-container">
-    <!-- بطاقة الدورة 1 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>202 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> اهمية الابتكار</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 11/07/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 30</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status reserved">محجوزة</span>
-      </div>
     </div>
 
-    <!-- بطاقة الدورة 2 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>301 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> إدارة الوقت</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 15/07/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 20</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status available">متاحة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 3 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>401 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> فن التعامل مع الضغوط</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 20/07/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 15</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status available">متاحة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 4 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>501 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> فن الاتصال الفعال</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 25/07/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 25</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status reserved">محجوزة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 5 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>601 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> استراتيجيات التسويق الرقمي</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 30/07/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 10</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status available">متاحة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 6 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>701 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> تطوير القيادة الشخصية</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 05/08/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 18</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status available">متاحة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 7 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>801 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> الابتكار في التصميم</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 10/08/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 22</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status reserved">محجوزة</span>
-      </div>
-    </div>
-
-    <!-- بطاقة الدورة 8 -->
-    <div class="course-card">
-      <div class="course-header">
-        <h3>901 <span class="icon-location">📍</span></h3>
-      </div>
-      <div class="course-body">
-        <p><strong>اسم الدورة:</strong> إدارة المشاريع الكبرى</p>
-        <p><span class="icon-calendar">📅</span> يبدأ في: 15/08/2024</p>
-        <p><span class="icon-seats">💺</span> المقاعد المتاحة: 12</p>
-      </div>
-      <div class="course-footer">
-        <button @click="goToDetails" class="details-button">التفاصيل</button>
-        <span class="status available">متاحة</span>
+    <div class="courses-container">
+      <div v-for="course in filteredCourses" :key="course.id" class="course-card">
+        <div class="course-header">
+          <h3>{{ course.number }} <span class="icon-location">📍</span></h3>
+        </div>
+        <div class="course-body">
+          <p><strong>اسم الدورة:</strong> {{ course.name }}</p>
+          <p><span class="icon-calendar">📅</span> يبدأ في: {{ course.startDate }}</p>
+          <p><span class="icon-seats">💺</span> المقاعد المتاحة: {{ course.availableSeats }}</p>
+        </div>
+        <div class="course-footer">
+          <button class="details-button">التفاصيل</button>
+          <span class="status" :class="course.availableSeats > 0 ? 'available' : 'reserved'">{{ course.availableSeats > 0 ? 'متاحة' : 'محجوزة' }}</span>
+        </div>
       </div>
     </div>
   </div>
-  </template>
-  
-  <script>
- export default {
-  name: 'CourseCard',
-  methods: {
-    goToDetails() {
-      this.$router.push('/details');
+</template>
+
+<script>
+export default {
+  name: 'CourseList',
+  data() {
+    return {
+      searchQuery: '',
+      courses: [
+        { id: 1, number: 202, name: 'أهمية الابتكار', startDate: '11/07/2024', availableSeats: 30 },
+        { id: 2, number: 203, name: 'الابتكار المتقدم', startDate: '12/07/2024', availableSeats: 0 },
+        { id: 3, number: 204, name: 'الابتكار الأساسي', startDate: '13/07/2024', availableSeats: 20 },
+        { id: 4, number: 205, name: 'الذكاء الاصطناعي', startDate: '14/07/2024', availableSeats: 15 },
+        { id: 5, number: 206, name: 'الأمن السيبراني', startDate: '15/07/2024', availableSeats: 25 },
+        { id: 6, number: 207, name: 'الروبوتات', startDate: '16/07/2024', availableSeats: 10 },
+        { id: 7, number: 208, name: 'البرمجة المتقدمة', startDate: '17/07/2024', availableSeats: 5 },
+        { id: 8, number: 209, name: 'البيانات الضخمة', startDate: '18/07/2024', availableSeats: 0 },
+        { id: 9, number: 210, name: 'التعلم الآلي', startDate: '19/07/2024', availableSeats: 7 },
+        { id: 10, number: 211, name: 'الحوسبة السحابية', startDate: '20/07/2024', availableSeats: 13 },
+        { id: 11, number: 212, name: 'شبكات الكمبيوتر', startDate: '21/07/2024', availableSeats: 22 },
+        { id: 12, number: 213, name: 'تطوير الويب', startDate: '22/07/2024', availableSeats: 8 },
+        { id: 13, number: 214, name: 'تطبيقات المحمول', startDate: '23/07/2024', availableSeats: 18 },
+        { id: 14, number: 215, name: 'تصميم الألعاب', startDate: '24/07/2024', availableSeats: 0 },
+        { id: 15, number: 216, name: 'الواقع الافتراضي', startDate: '25/07/2024', availableSeats: 12 },
+        { id: 16, number: 217, name: 'الواقع المعزز', startDate: '26/07/2024', availableSeats: 14 },
+        { id: 17, number: 218, name: 'أنظمة التشغيل', startDate: '27/07/2024', availableSeats: 6 },
+        { id: 18, number: 219, name: 'قواعد البيانات', startDate: '28/07/2024', availableSeats: 11 },
+        { id: 19, number: 220, name: 'إدارة المشاريع', startDate: '29/07/2024', availableSeats: 9 },
+        { id: 20, number: 221, name: 'التسويق الرقمي', startDate: '30/07/2024', availableSeats: 16 }
+      ],
+    };
+  },
+  computed: {
+    filteredCourses() {
+      if (!this.searchQuery) {
+        return this.courses;
+      }
+      return this.courses.filter(course =>
+        course.number.toString().includes(this.searchQuery) ||
+        course.name.includes(this.searchQuery)
+      );
     },
+  },
+  methods: {
     search() {
-      // اضف هنا الكود اللازم للبحث
-    }
-  }
+      // Perform search logic, if needed
+    },
+  },
 };
-  </script>
-  
-  
+</script>
 
 <style scoped>
-.course-card-container {
+#course-list {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #2980b9;
+}
+
+.courses-container {
   display: flex;
-  flex-wrap: wrap; /* تسمح بالتفاف العناصر عندما تتعدى */
-  gap: 20px; /* تباعد بين البطاقات */
+  flex-direction: column;
+  align-items: center;
+  max-height: 70vh; /* Set the maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .course-card {
@@ -165,7 +119,7 @@
   padding: 16px;
   background-color: #f9f9f9;
   width: 250px;
-  font-family: Arial, sans-serif;
+  margin: 10px;
 }
 
 .course-header h3 {
@@ -212,11 +166,11 @@
   color: white;
 }
 
-.status.reserved {
-  background-color: #e57373;
+.status.available {
+  background-color: #4caf50;
 }
 
-.status.available {
-  background-color: #7ac785;
+.status.reserved {
+  background-color: #e57373;
 }
 </style>
