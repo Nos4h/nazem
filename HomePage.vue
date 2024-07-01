@@ -78,7 +78,7 @@ export default {
 }
 
 .start-button:hover {
-  background-color: #b18d44;
+  background-color: #b1a544;
 }
 
 .admin-login-button {
@@ -89,7 +89,8 @@ export default {
   padding: 5px 25px;
   font-size: 1.3em;
   cursor: pointer;
-  background-color: #b1a544;
+  background-color: #006870;
+  
   color: white;
   border: none;
   border-radius: 30px;
@@ -97,7 +98,7 @@ export default {
 }
 
 .admin-login-button:hover {
-  background-color: #006870;
+  background-color: #b1a544;
 }
 
 .language-switcher {
