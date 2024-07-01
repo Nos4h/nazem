@@ -2,6 +2,7 @@
   <div id="home">
     <div class="background-container">
       <button @click="startButtonClicked" class="start-button">{{ $t('startButton') }}</button>
+      <button @click="adminLoginClicked" class="admin-login-button">تسجيل الدخول كمسؤول</button>
       <div class="language-switcher">
         <span @click="setLocale('en')" class="language-button">English</span>
         <span class="divider">|</span>
@@ -23,6 +24,9 @@ export default {
   methods: {
     startButtonClicked() {
       this.$router.push({ name: 'NewPage' });
+    },
+    adminLoginClicked() {
+      this.$router.push({ name: 'AdminLogin' });
     },
     handleFileUpload(event) {
       const file = event.target.files[0];
@@ -75,6 +79,25 @@ export default {
 
 .start-button:hover {
   background-color: #b18d44;
+}
+
+.admin-login-button {
+  position: absolute;
+  bottom: 80px; /* Adjust button position from bottom */
+  left: 50%;
+  transform: translate(-50%, 150%);
+  padding: 5px 25px;
+  font-size: 1.3em;
+  cursor: pointer;
+  background-color: #b1a544;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-login-button:hover {
+  background-color: #006870;
 }
 
 .language-switcher {
