@@ -1,5 +1,4 @@
-
-<!-- src/components/CourseList.vue -->
+<!-- src/components/newpage.vue -->
 <template>
   <div id="course-list">
     <h1>القاعات و الدورات</h1>
@@ -19,7 +18,7 @@
           <p><span class="icon-seats">💺</span> المقاعد المتاحة: {{ course.availableSeats }}</p>
         </div>
         <div class="course-footer">
-          <button class="details-button">التفاصيل</button>
+          <button class="details-button" @click="viewDetails(course.id)">التفاصيل</button>
           <span class="status" :class="course.availableSeats > 0 ? 'available' : 'reserved'">{{ course.availableSeats > 0 ? 'متاحة' : 'محجوزة' }}</span>
         </div>
       </div>
@@ -70,7 +69,10 @@ export default {
     search() {
       // Perform search logic, if needed
     },
-  },
+    viewDetails(courseId) {
+      this.$router.push({ name: 'CourseDetails', params: { id: courseId } });
+    }
+  }
 };
 </script>
 
