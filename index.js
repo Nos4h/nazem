@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../components/HomePage.vue';
 import NewPage from '../components/NewPage.vue';
-import AdminLogin from '../components/AdminLogin.vue'; // استيراد صفحة تسجيل الدخول
+import AdminLogin from '../components/AdminLogin.vue';
+import CourseDetails from '../components/CourseDetails.vue'; // Import CourseDetails component
 
 const routes = [
   {
@@ -18,6 +19,12 @@ const routes = [
     path: '/admin-login',
     name: 'AdminLogin',
     component: AdminLogin
+  },
+  {
+    path: '/course/:id',
+    name: 'CourseDetails',
+    component: CourseDetails,
+    props: true
   }
 ];
 
