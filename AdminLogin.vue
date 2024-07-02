@@ -14,6 +14,7 @@
         <input type="password" v-model="password" id="password" required>
       </div>
       <button type="submit">تسجيل الدخول</button>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
@@ -24,16 +25,25 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   },
   methods: {
     login() {
-      // هنا يمكنك إضافة منطق تسجيل الدخول للمسؤول
-      console.log('اسم المستخدم:', this.username);
-      console.log('كلمة المرور:', this.password);
-      // بعد التحقق الناجح، يمكنك إعادة توجيه المستخدم إلى صفحة أخرى
-      // this.$router.push({ name: 'AdminDashboard' });
+      // Replace with actual admin credentials or authentication logic
+      const adminCredentials = {
+        username: 'admin',
+        password: 'password123'
+      };
+
+      if (this.username === adminCredentials.username && this.password === adminCredentials.password) {
+        console.log('Logged in successfully');
+        // Redirect to the admin dashboard or another secure page
+        this.$router.push({ name: 'AdminDashboard' });
+      } else {
+        this.errorMessage = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+      }
     }
   }
 };
@@ -110,5 +120,10 @@ button {
 
 button:hover {
   background-color: #b18d44;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
 }
 </style>
