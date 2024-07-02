@@ -6,17 +6,17 @@
     </div>
     <div class="course-info">
       <div class="course-time">
-        <p><strong>البداية:</strong> <span>{{ course.startTime }}</span></p>
-        <p><strong>النهاية:</strong> <span>{{ course.endTime }}</span></p>
+        <p><strong>:البداية</strong> <span>{{ course.startTime }}</span></p>
+        <p><strong>:النهاية</strong> <span>{{ course.endTime }}</span></p>
       </div>
       <div class="course-meta">
         <p><strong>عدد المقاعد المتاحة:</strong> <span>{{ course.availableSeats }}</span></p>
-        <p><strong>مبنى:</strong> <span>{{ course.building }}</span></p>
-        <p><strong>المدرب:</strong> <span>{{ course.instructor }}</span></p>
+        <p><strong>:مبنى</strong> <span>{{ course.building }}</span></p>
+        <p><strong>:المدرب</strong> <span>{{ course.instructor }}</span></p>
       </div>
     </div>
     <div class="course-description">
-      <p><strong>الوصف:</strong></p>
+      <p><strong>:الوصف</strong></p>
       <p>{{ course.description }}</p>
     </div>
     <div class="course-actions">
@@ -50,16 +50,19 @@ export default {
   },
   methods: {
     scanQRCode() {
-      // Implement QR code scanning logic
       console.log('QR code scanning...');
     },
     rateCourse(rating) {
-      // Implement course rating logic
       console.log(`Rating received: ${rating}`);
+      this.submitRating(rating);
+    },
+    submitRating(rating) {
+      console.log('Submitting rating:', rating);
+      // Add logic here to handle the rating submission, e.g., sending to an API
+      alert(`تم إرسال التقييم: ${rating}`);
     },
     fetchCourseDetails() {
       console.log('Fetching details for course ID:', this.$route.params.id);
-      // Replace this with your actual fetching logic
       const courses = [
       { id: 1, number: 101, name: 'أهمية الابتكار', startDate: '11/07/2024', availableSeats: 36 },
         { id: 2, number: 102, name: 'الابتكار المتقدم', startDate: '12/07/2024', availableSeats: 30 },
@@ -79,7 +82,7 @@ export default {
         { id: 16, number: 302, name: 'الواقع المعزز', startDate: '26/07/2024', availableSeats: 36 },
         { id: 17, number: 303, name: 'أنظمة التشغيل', startDate: '27/07/2024', availableSeats: 36 },
         { id: 18, number: 217, name: 'تطبيقات المحمول', startDate: '28/07/2024', availableSeats: 36 },
-      ];
+        ];
       this.course = courses.find(course => course.id === parseInt(this.$route.params.id));
       console.log('Course details:', this.course);
     }
@@ -145,7 +148,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
-  text-align: left;
+  text-align: right;
 }
 
 .course-description p {
