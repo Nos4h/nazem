@@ -1,23 +1,32 @@
 <template>
-  <div id="admin-login">
-    <div class="login-image">
-      <img src="https://pbs.twimg.com/media/GRYt8w2aIAABADm?format=jpg&name=small" alt="Login Image">
+  <div id="admin-login" class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="login-image text-center mb-3">
+              <img src="https://pbs.twimg.com/media/GRYt8w2aIAABADm?format=jpg&name=small" alt="Login Image" class="img-fluid rounded shadow">
+            </div>
+            <h2 class="text-center">تسجيل الدخول كمسؤول</h2>
+            <form @submit.prevent="login">
+              <div class="mb-3">
+                <label for="username" class="form-label">اسم المستخدم</label>
+                <input type="text" v-model="username" id="username" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">كلمة المرور</label>
+                <input type="password" v-model="password" id="password" class="form-control" required>
+              </div>
+              <button type="submit" class="btn custom-button w-100">تسجيل الدخول</button>
+              <p v-if="errorMessage" class="text-danger mt-3">{{ errorMessage }}</p>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <h2>تسجيل الدخول كمسؤول</h2>
-    <form @submit.prevent="login">
-      <div class="form-group">
-        <label for="username">اسم المستخدم</label>
-        <input type="text" v-model="username" id="username" required>
-      </div>
-      <div class="form-group">
-        <label for="password">كلمة المرور</label>
-        <input type="password" v-model="password" id="password" required>
-      </div>
-      <button type="submit">تسجيل الدخول</button>
-      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-    </form>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -31,7 +40,6 @@ export default {
   },
   methods: {
     login() {
-      // Replace with actual admin credentials or authentication logic
       const adminCredentials = {
         username: 'admin',
         password: 'password123'
@@ -39,7 +47,6 @@ export default {
 
       if (this.username === adminCredentials.username && this.password === adminCredentials.password) {
         console.log('Logged in successfully');
-        // Redirect to the admin dashboard or another secure page
         this.$router.push({ name: 'AdminDashboard' });
       } else {
         this.errorMessage = 'اسم المستخدم أو كلمة المرور غير صحيحة';
@@ -50,21 +57,6 @@ export default {
 </script>
 
 <style scoped>
-#admin-login {
-  max-width: 300px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f4f7f9;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.login-image {
-  margin-bottom: 20px;
-}
-
 .login-image img {
   max-width: 100%;
   height: auto;
@@ -72,58 +64,22 @@ export default {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
 form {
-  text-align: right; /* Align text to the right */
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #666;
+  text-align: right;
 }
 
 input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
   text-align: right; /* Align input text to the right */
 }
 
-input:focus {
-  border-color: #006870;
-  outline: none;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #006870;
+.custom-button {
+  background-color: #b18d44;
   color: white;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #b18d44;
-}
-
-.error-message {
-  color: red;
-  margin-top: 10px;
+.custom-button:hover {
+  background-color: #98855f;
 }
 </style>
+
