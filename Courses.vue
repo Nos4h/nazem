@@ -17,7 +17,7 @@
       <div v-for="course in paginatedCourses" :key="course.id" class="col-md-4 mb-4">
         <div class="card h-100 course-card">
           <div class="card-header">
-            <h5 class="card-title">{{ course.number }}</h5>
+            <h5 class="card-title">{{ course.hall }}</h5>
           </div>
           <div class="card-body">
             <p class="card-text"><strong>اسم الدورة:</strong> {{ course.name }}</p>
@@ -67,10 +67,12 @@ export default {
     return this.courses.filter(course => {
       const number = course.number ? course.number.toString().toLowerCase() : '';
       const name = course.name ? course.name.toLowerCase() : '';
-      return number.includes(lowerSearchQuery) || name.includes(lowerSearchQuery);
+      const hall = course.hall ? course.hall.toString().toLowerCase() : '';
+      return number.includes(lowerSearchQuery) || name.includes(lowerSearchQuery) || hall.includes(lowerSearchQuery);
     });
   }
 }
+
 
 ,
   data() {
