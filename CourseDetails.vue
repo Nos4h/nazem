@@ -31,6 +31,7 @@
         <button class="rating-button" @click="rateCourse('neutral')">😐</button>
         <button class="rating-button" @click="rateCourse('good')">😊</button>
         <p class="mt-2">Rate Us</p>
+        
       </div>
     </div>
   </div>
