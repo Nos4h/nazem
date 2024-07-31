@@ -21,11 +21,11 @@
           </div>
           <div class="card-body">
             <p class="card-text"><strong>اسم الدورة:</strong> {{ course.name }}</p>
-            <p class="card-text"><i class="bi bi-calendar-event"></i> يبدأ في: {{ course.startDate }}</p>
+            <p class="card-text"><i class="bi bi-calendar-event"></i> يبدأ في: {{ course.date }}</p>
             <p class="card-text"><i class="bi bi-person-fill"></i> المقاعد المتاحة: {{ course.availableSeats }}</p>
           </div>
           <div class="card-footer d-flex justify-content-between align-items-center">
-            <button class="btn btn-details" @click="viewDetails(course.id)">التفاصيل</button>
+            <button class="btn btn-details" @click="viewDetails(course.id)">للتسجيل</button>
             <span class="status badge" :class="course.availableSeats > 0 ? 'badge-success' : 'badge-danger'">
               {{ course.availableSeats > 0 ? 'متاحة' : 'محجوزة' }}
             </span>
