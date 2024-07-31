@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../components/HomePage.vue';
-import NewPage from '../components/NewPage.vue';
 import AdminLogin from '../components/AdminLogin.vue';
+import CourseDetails from '../components/CourseDetails.vue';
+import Courses from '../components/Courses.vue';
 import AdminDashboard from '../components/AdminDashboard.vue';
-import CourseDetails from '../components/CourseDetails.vue'; // Import CourseDetails component
 
 const routes = [
   {
@@ -12,9 +12,9 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/new-page',
-    name: 'NewPage',
-    component: NewPage
+    path: '/courses',
+    name: 'Courses',
+    component: Courses
   },
   {
     path: '/admin-login',
@@ -22,15 +22,15 @@ const routes = [
     component: AdminLogin
   },
   {
-    path: '/admin-dashboard',
-    name: 'AdminDashboard',
-    component: AdminDashboard
-  },
-  {
     path: '/course/:id',
     name: 'CourseDetails',
     component: CourseDetails,
     props: true
+  },
+  {
+    path: '/admin-dashboard',
+    name: 'AdminDashboard',
+    component: AdminDashboard
   }
 ];
 
